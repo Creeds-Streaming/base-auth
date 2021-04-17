@@ -7,8 +7,8 @@ app.use(express.urlencoded());
 app.post("/auth", function(req, res) {
     var key = req.body.name;
     console.log(key + "[ONLINE]");
-    var channelName = "creedscode"
-    if (key == "stonks") {
+    var channelName = "live"
+    if (key == "187") {
         // res.status(200).send();
         res.redirect(`rtmp://127.0.0.1/hls-live/${channelName}`);
         return;
@@ -29,9 +29,6 @@ app.post("/done", function(req, res) {
 app.post("/play", function(req, res) {
     var key = req.body.name;
     console.log(key + " [watching]");
-    console.log(req.header("Bearer"));
-    console.log(req);
-    console.log("____________________________________________________");
     res.status(200).send();
     return;
 });
